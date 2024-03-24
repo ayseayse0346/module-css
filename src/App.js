@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import Card from "./components/card/Card";
+
+import data from "./data";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <h1 style={{textAlign:"center"}}>LANGUAGES</h1>
+   
+   {/* //! Birden fazla statemet kullanicaksa o zaman fonksiyonun suslu  ve return keywordu kullanamsi gerekir. */}
+  
+   {/* //? Rendering Lists */}
+      {/* //* Each child in a list should have a unique "key" prop. React liste içindeki her bir elemanın uniqe bir key'e sahip olmasını ister */}
+  
+  {
+    data.map((item , i)=>{
+return <Card key={item.id} lang={item.language} img={item.img}/>
+    })
+  }
+  
+  {/* <Card lang={data[0].language} img={data[0].img} />
+  <Card lang={data[1].language} img={data[1].img}/>
+  <Card lang ={data[2].language} img={data[2].img}/> */}
     </div>
   );
 }
 
 export default App;
+
+
+// map methodunu kullanacağız.
